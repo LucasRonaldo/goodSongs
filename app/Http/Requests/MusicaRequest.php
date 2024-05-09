@@ -39,4 +39,29 @@ class MusicaRequest extends FormRequest
             'error' => $validator->errors()
         ]));
     }
+
+    public function messages()
+    {
+        return[
+            'titulo.required' => 'O título é obrigatório',
+        'titulo.max' => 'O título deve conter no máximo 120 caracteres',
+        'titulo.min' => 'O título deve conter no mínimo 5 caracteres',
+        'duracao.required' => 'A duração é obrigatória',
+        'duracao.numeric' => 'A duração deve ser em minutos. Ex: 60 = 1 hora',
+        'artista.required' => 'O artista é obrigatório',
+        'artista.max' => 'O artista deve conter no máximo 120 caracteres',
+        'artista.min' => 'O artista deve conter no mínimo 5 caracteres',
+        'genero.required' => 'O gênero é obrigatório',
+        'genero.max' => 'O gênero deve conter no máximo 120 caracteres',
+        'genero.min' => 'O gÊnero deve conter no mínimo 5 caracteres',
+        'nacionalidade.required' => 'A nacionalidade é obrigatória',
+        'nacionalidade.max' => 'A nacionalidade deve conter no máximo 120 caracteres',
+        'nacionalidade.min' => 'A nacionalidade deve conter no mínimo 5 caracteres',
+        'ano_lancamento.required' => 'O ano de lançamento é obrigatório',
+        'ano_lancamento.date' => 'O formato do ano do lançamento é inválido',
+        'album.required' => 'O álbum é obrigatório',
+        'album.max' => 'O álbum deve conter no máximo 120 caracteres',
+        'album.min' => 'O álbum deve conter no mínimo 5 caracteres'
+        ];
+    }
 }

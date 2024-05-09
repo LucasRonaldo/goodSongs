@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('cadastro/musica', [MusicaController::class, 'cadastroMusica']);
-Route::post('vizualizar/musica', [MusicaController::class, 'retornarTodasMusicas']);
-Route::post('delete/musica', [MusicaController::class, 'excluirMusica']);
-Route::post('update/musica', [MusicaController::class, 'editarMusica']);
-Route::post('pesquisar/musica/id', [MusicaController::class, 'pesquisarPorId']);
-Route::post('pesquisar/musica/titulo', [MusicaController::class, 'pesquisarPorTitulo']);
+Route::get('vizualizar/musica', [MusicaController::class, 'retornarTodasMusicas']);
+Route::delete('delete/musica', [MusicaController::class, 'excluirMusica']);
+Route::put('update/musica', [MusicaController::class, 'editarMusica']);
+Route::get('pesquisar/musica/id', [MusicaController::class, 'pesquisarPorId']);
+Route::get('pesquisar/musica/titulo', [MusicaController::class, 'pesquisarPorTitulo']);

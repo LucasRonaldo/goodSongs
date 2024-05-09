@@ -47,9 +47,9 @@ class MusicaController extends Controller
     }
 
 
-    public function excluirMusica($id)
+    public function excluirMusica(Request $request)
     {
-        $musica = Musica::find($id);
+        $musica = Musica::find($request->id);
 
         if (!isset($musica)) {
             return response()->json([
@@ -106,9 +106,9 @@ class MusicaController extends Controller
         ]);
     }
 
-    public function pesquisarPorId($id)
+    public function pesquisarPorId(Request $request)
     {
-        $musica = Musica::find($id);
+        $musica = Musica::find($request->id);
 
         if (!isset($musica)) {
             return response()->json([
