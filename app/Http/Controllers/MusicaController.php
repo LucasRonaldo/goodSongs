@@ -9,26 +9,34 @@ use Illuminate\Http\Request;
 
 class MusicaController extends Controller
 {
-    public function cadastroMusica(MusicaRequest $request){
+    public function cadastroMusica(MusicaRequest $request)
+    {
+        $musicaExistente = Musica::where('titulo', $request->titulo)->where('artista', $request->artista)->first();
+        if (isset($musicaExistente)) {
+            return response()->json([
+                "status" => false,
+                "message" => "Esse artista já possui esse titulo "
+            ], 400);
+        }
         $musica = Musica::create([
-            'titulo'=>$request-> titulo,
-            'duracao'=>$request-> duracao,
-            'artista'=>$request-> artista,
-            'genero'=>$request-> genero,
-            'nacionalidade'=>$request-> nacionalidade,
-            'ano_lancamento'=>$request-> ano_lancamento,
-            'album'=>$request->album
+            'titulo' => $request->titulo,
+            'duracao' => $request->duracao,
+            'artista' => $request->artista,
+            'genero' => $request->genero,
+            'nacionalidade' => $request->nacionalidade,
+            'ano_lancamento' => $request->ano_lancamento,
+            'album' => $request->album
         ]);
 
         return response()->json([
-                'status' => true,
-                'message' => 'Musica cadastrada com sucesso',
-                'data' => $musica
-    
-            ], 200);
+            'status' => true,
+            'message' => 'Musica cadastrada com sucesso',
+            'data' => $musica
+
+        ], 200);
     }
 
-   
+
     public function retornarTodasMusicas()
     {
         $musica = musica::all();
@@ -43,7 +51,6 @@ class MusicaController extends Controller
             'status' => false,
             'data' => 'Não há nenhuma musica registrada'
         ]);
-
     }
 
 
@@ -97,7 +104,7 @@ class MusicaController extends Controller
         if (isset($request->album)) {
             $musica->album = $request->album;
         }
-        
+
         $musica->update();
 
         return response()->json([
@@ -155,6 +162,4 @@ class MusicaController extends Controller
             'message' => 'Não há resultado para pesquisa'
         ]);
     }
-
-
 }
