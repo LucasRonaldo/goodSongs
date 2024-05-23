@@ -43,8 +43,8 @@ class MusicaController extends Controller
 
         if (count($musica) > 0) {
             return response()->json([
-                'status' => true,
-                'data' => $musica
+                'res'=> true,
+                'data'=>$musica
             ]);
         }
         return response()->json([
