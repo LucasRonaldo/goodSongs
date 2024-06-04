@@ -43,20 +43,20 @@ class MusicaController extends Controller
 
         if (count($musica) > 0) {
             return response()->json([
-                'res'=> true,
+                'status'=> true,
                 'data'=>$musica
             ]);
         }
-        return response()->json([
+        return response()->json([   
             'status' => false,
             'data' => 'Não há nenhuma musica registrada'
         ]);
     }
 
 
-    public function excluirMusica(Request $request)
+    public function excluirMusica( $id)
     {
-        $musica = Musica::find($request->id);
+        $musica = Musica::find($id);
 
         if (!isset($musica)) {
             return response()->json([
