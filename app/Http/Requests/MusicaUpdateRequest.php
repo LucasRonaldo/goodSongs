@@ -24,13 +24,13 @@ class MusicaUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'titulo'=>'required|max:120|min:5|',
+            'titulo'=>'required|max:120||',
             'duracao'=>'required|numeric',
-            'artista'=>'required|max:120|min:5',
-            'genero'=>'required|max:120|min:5',
-            'nacionalidade'=>'required|max:120|min:5',
+            'artista'=>'required|max:120|',
+            'genero'=>'required|max:120|',
+            'nacionalidade'=>'required|max:120|',
             'ano_lancamento'=>'required|date',
-            'album'=>'max:120|min:5'
+            'album'=>'max:120|'
         ];
     }
 
